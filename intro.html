@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シンラ製麺 安国店の紹介</title>
+<link rel="icon" type="image/png" sizes="32x32" href="신라제면.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="신라제면.png">
+  <link rel="shortcut icon" href="신라제면.png">
+<style>
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff8f0;
+    color: #5c4033;
+  }
+
+  #intro h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 40px 20px;
+    color: #d35400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  #intro h2 a {
+    text-decoration: none;
+    color: #d35400;
+    transition: color 0.3s ease;
+  }
+  #intro h2 a:hover { color: #e67e22; }
+
+  .intro-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .intro-item.reverse { flex-direction: row-reverse; }
+  .intro-item.show { opacity: 1; transform: translateY(0); }
+
+  .intro-item img {
+    width: 45%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .intro-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+  }
+
+  .intro-item p {
+    width: 45%;
+    min-width: 280px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: justify;
+  }
+
+  #intro + p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 30px 20px;
+    color: #d35400;
+    font-weight: bold;
+  }
+
+  @media(max-width:992px){
+    .intro-item {
+      flex-direction: column;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .intro-item img, .intro-item p {
+      width: 90%;
+    }
+    .intro-item p { text-align: center; }
+  }
+
+  @media(max-width:480px){
+    #intro h2 { font-size: 1.8rem; margin: 30px 10px; }
+    .intro-item p { font-size: 1rem; padding: 15px; }
+    #intro + p { font-size: 1rem; margin: 20px 10px; }
+  }
+  </style>
+</head>
+<body>
+
+<section id="intro">
+  <h2><a href="index.html">シンラ製麺 安国店</a></h2>
+
+  <div class="intro-item">
+    <img src="매장3.webp" alt="店舗内観" loading="lazy">
+    <p>シンラ製麺 安国店は、落ち着いた雰囲気の中で最高の料理をお楽しみいただけます。</p>
+  </div>
+
+  <div class="intro-item reverse">
+    <img src="매장4.webp" alt="店舗外観" loading="lazy">
+    <p>店舗外観は伝統と現代が融合したデザインで、訪れるだけでも特別な体験ができます。</p>
+  </div>
+
+  <div class="intro-item">
+    <img src="매장5.webp" alt="カウンター席" loading="lazy">
+    <p>最高のデザインは料理を最高のものにし、お客様の満足を最優先にいたします。</p>
+  </div>
+
+  <div class="intro-item reverse">
+    <img src="매장6.webp" alt="窓際席" loading="lazy">
+    <p>窓際でのお食事は決して不便ではありません。日差しが差し込むことはなく、心地よい温もりを感じていただけます。</p>
+  </div>
+
+  <div class="intro-item">
+    <img src="매장7.webp" alt="テーブル席" loading="lazy">
+    <p>最高の席は最高の料理を引き立て、多くのお席をご用意しております。</p>
+  </div>
+
+  <div class="intro-item reverse">
+    <img src="매장8.webp" alt="陶磁器装飾" loading="lazy">
+    <p>この陶磁器が空間に大きな余白を満たしてくれます。</p>
+  </div>
+
+  <div class="intro-item">
+    <img src="매장9.webp" alt="照明" loading="lazy">
+    <p>夕方にお越しいただくと、より良い雰囲気の照明が皆さまをお迎えいたします。</p>
+  </div>
+</section>
+
+<p>こんなに素晴らしいお店は見たことがありません。シンラ製麺だけで味わえる特別な雰囲気を、ぜひご体験ください。</p>
+
+<script>
+const items = document.querySelectorAll('.intro-item');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+},{ threshold: 0.2 });
+items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
